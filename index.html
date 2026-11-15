@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name — Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- PASSWORD SCREEN -->
+    <div class="password-screen" id="password-screen">
+
+        <form class="password-box" id="password-form">
+
+            <h1>Sandra Yao</h1>
+
+            <p class="password-intro">
+                Welcome to my portfolio.
+                Please enter the password to continue.
+            </p>
+
+            <input
+                type="password"
+                id="password-input"
+                placeholder="Enter password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit">ENTER ↗</button>
+
+            <p class="password-error" id="password-error"
+               aria-live="polite"></p>
+
+            <span class="password-footer">
+                © 2026 YOUR NAME
+            </span>
+
+        </form>
+
+    </div>
+
+
+    <!-- MAIN PORTFOLIO -->
+    <div id="portfolio-app" hidden>
+
+        <main class="site-container">
+
+            <!-- LEFT SIDEBAR -->
+            <aside class="sidebar">
+
+                <div class="sidebar-top">
+
+                    <a href="index.html" class="name">
+                        YOUR NAME
+                    </a>
+
+                    <p class="intro">
+                        Graphic designer and visual creative
+                        exploring design, photography, and
+                        digital experiences.
+                    </p>
+
+                </div>
+
+
+                <!-- PROJECT NAVIGATION -->
+                <nav class="project-navigation">
+
+                    <p class="section-label">
+                        SELECTED WORK — 2022–2026
+                    </p>
+
+                    <ul id="project-list"></ul>
+
+                </nav>
+
+
+                <!-- CONTACT -->
+                <div class="sidebar-bottom">
+
+                    <a href="mailto:youremail@email.com">
+                        EMAIL ↗
+                    </a>
+
+                    <a href="https://linkedin.com/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        LINKEDIN ↗
+                    </a>
+
+                    <p>© 2026 YOUR NAME</p>
+
+                </div>
+
+            </aside>
+
+
+            <!-- RIGHT PROJECT GALLERY -->
+            <section class="main-content">
+
+                <div class="gallery-header">
+
+                    <span>SELECTED PROJECTS</span>
+
+                    <span id="project-count"></span>
+
+                </div>
+
+                <div class="project-grid" id="project-grid">
+                    <!-- JavaScript generates projects here -->
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
