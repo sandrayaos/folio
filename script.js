@@ -3,7 +3,7 @@
    PASSWORD SCREEN
 ===================================== */
 
-const SITE_PASSWORD = "portfolio2026";
+const SITE_PASSWORD = "sandra2026";
 const SESSION_KEY = "portfolio_access_granted";
 
 const passwordForm = document.getElementById("password-form");
