@@ -103,7 +103,7 @@ const projects = [
         category: "Graphic Design",
         year: "2026",
 
-        cover: "images/thumbnails/project-01.jpg",
+        cover: "images/project-01.jpg",
 
         description:
             "A collection of marketing campaigns, digital graphics, and visual communication created for MSI.",
