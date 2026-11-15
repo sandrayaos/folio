@@ -381,3 +381,19 @@ document.addEventListener("mousemove", function(event) {
 
     cursor.classList.toggle("hover", !!clickable);
 });
+
+
+const card = document.createElement("a");
+card.className = "project-card";
+card.href = `project.html?project=${project.id}`;
+
+card.innerHTML = `
+    <img
+        src="${project.cover}"
+        alt="${project.title}"
+        class="project-image"
+    >
+    <div class="project-title">${project.title}</div>
+`;
+
+gallery.appendChild(card);
