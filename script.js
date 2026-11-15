@@ -1,377 +1,254 @@
 
-/* =========================
-   PASSWORD SETTINGS
-========================= */
+/* =====================================
+   PASSWORD SCREEN
+===================================== */
 
-// CHANGE YOUR PASSWORD HERE
-const SITE_PASSWORD = "sandra2026";
-
-// Session key shared by homepage and project pages
+const SITE_PASSWORD = "portfolio2026";
 const SESSION_KEY = "portfolio_access_granted";
 
+const passwordForm = document.getElementById("password-form");
+const passwordInput = document.getElementById("password-input");
+const passwordScreen = document.getElementById("password-screen");
+const passwordError = document.getElementById("password-error");
+const portfolioApp = document.getElementById("portfolio-app");
 
-/* =========================
-   PASSWORD AUTHENTICATION
-========================= */
-
-const passwordScreen =
-    document.getElementById("password-screen");
-
-const portfolioApp =
-    document.getElementById("portfolio-app");
-
-const passwordForm =
-    document.getElementById("password-form");
-
-const passwordInput =
-    document.getElementById("password-input");
-
-const passwordError =
-    document.getElementById("password-error");
-
-
-// Check whether visitor has already entered password
-function checkAccess() {
-
-    const hasAccess =
-        sessionStorage.getItem(SESSION_KEY) === "true";
-
-    if (hasAccess) {
-
+function unlockPortfolio() {
+    if (passwordScreen) {
         passwordScreen.hidden = true;
-        portfolioApp.hidden = false;
-
-    } else {
-
-        passwordScreen.hidden = false;
-        portfolioApp.hidden = true;
-
     }
 
+    if (portfolioApp) {
+        portfolioApp.hidden = false;
+    }
 }
 
+// Check whether the visitor already entered the password
+if (sessionStorage.getItem(SESSION_KEY) === "true") {
+    unlockPortfolio();
+}
 
-// Handle password submission
 if (passwordForm) {
-
-    passwordForm.addEventListener("submit", function(event) {
-
+    passwordForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const enteredPassword = passwordInput.value;
-
-        if (enteredPassword === SITE_PASSWORD) {
-
-            // Save access for this browser tab session
+        if (passwordInput.value === SITE_PASSWORD) {
             sessionStorage.setItem(SESSION_KEY, "true");
-
-            passwordError.textContent = "";
-
-            passwordScreen.hidden = true;
-            portfolioApp.hidden = false;
-
-            passwordInput.value = "";
-
+            unlockPortfolio();
         } else {
-
-            passwordError.textContent =
-                "Incorrect password. Please try again.";
+            if (passwordError) {
+                passwordError.textContent = "Incorrect password. Please try again.";
+            }
 
             passwordInput.value = "";
             passwordInput.focus();
-
         }
-
     });
-
 }
 
 
-// Check access when page loads
-checkAccess();
-
-
-/* =========================
-   PORTFOLIO PROJECT DATA
-========================= */
+/* =====================================
+   PROJECT INFORMATION
+===================================== */
 
 const projects = [
-
     {
         id: "project-01",
-        title: "MSI Marketing Campaign",
+        title: "Project One",
         category: "Graphic Design",
         year: "2026",
 
-        cover: "images/project-01.jpg",
+        // PROJECT 1 THUMBNAIL
+        cover: "https://raw.githubusercontent.com/sandrayaos/folio/refs/heads/main/images/project-01.jpg",
 
-        description:
-            "A collection of marketing campaigns, digital graphics, and visual communication created for MSI.",
+        description: "Project description goes here.",
 
         gallery: [
-            "images/project-01.jpg",
-            "images/project-02.jpg"
+            "https://raw.githubusercontent.com/sandrayaos/folio/refs/heads/main/images/project-01.jpg"
         ]
     },
 
     {
         id: "project-02",
-        title: "E-Commerce Photography",
-        category: "Photography",
-        year: "2025",
-
+        title: "Project Two",
+        category: "Branding",
+        year: "2026",
         cover: "images/project-02.jpg",
-
-        description:
-            "Product photography and image direction focused on creating engaging e-commerce experiences.",
-
+        description: "Project description goes here.",
         gallery: [
-            "images/project-02.jpg",
-            "images/project-03.jpg"
+            "images/project-02.jpg"
         ]
     },
 
     {
         id: "project-03",
-        title: "Web Design & Development",
+        title: "Project Three",
         category: "Web Design",
         year: "2025",
-
         cover: "images/project-03.jpg",
-
-        description:
-            "A digital design project exploring layout, visual hierarchy, and user experience.",
-
+        description: "Project description goes here.",
         gallery: [
-            "images/project-03.jpg",
-            "images/project-04.jpg"
+            "images/project-03.jpg"
         ]
     },
 
     {
         id: "project-04",
-        title: "Brand Identity",
-        category: "Branding",
-        year: "2024",
-
+        title: "Project Four",
+        category: "Photography",
+        year: "2025",
         cover: "images/project-04.jpg",
-
-        description:
-            "Visual identity exploration including typography, color systems, and brand applications.",
-
+        description: "Project description goes here.",
         gallery: [
-            "images/project-04.jpg",
-            "images/project-05.jpg"
+            "images/project-04.jpg"
         ]
     },
 
     {
         id: "project-05",
-        title: "Digital Campaign",
-        category: "Art Direction",
-        year: "2024",
-
+        title: "Project Five",
+        category: "UI/UX Design",
+        year: "2025",
         cover: "images/project-05.jpg",
-
-        description:
-            "Creative direction and digital assets for a multi-channel marketing campaign.",
-
+        description: "Project description goes here.",
         gallery: [
-            "images/project-05.jpg",
-            "images/project-06.jpg"
+            "images/project-05.jpg"
         ]
     },
 
     {
         id: "project-06",
-        title: "Interaction Design",
-        category: "UI / UX",
-        year: "2023",
-
+        title: "Project Six",
+        category: "Digital Design",
+        year: "2025",
         cover: "images/project-06.jpg",
-
-        description:
-            "An exploration of interface design, interaction patterns, and digital experiences.",
-
+        description: "Project description goes here.",
         gallery: [
-            "images/project-06.jpg",
-            "images/project-01.jpg"
+            "images/project-06.jpg"
         ]
     }
-
 ];
 
 
-/* =========================
-   PROJECT NAVIGATION
-========================= */
+/* =====================================
+   HOMEPAGE PROJECT NAVIGATION
+===================================== */
 
-const projectList =
-    document.getElementById("project-list");
+const projectList = document.getElementById("project-list");
 
 if (projectList) {
+    projects.forEach(function (project) {
+        const link = document.createElement("a");
 
-    projectList.innerHTML = projects.map(project => `
+        link.href = `project.html?project=${project.id}`;
+        link.textContent = project.title;
+        link.className = "project-nav-link";
 
-        <li>
-            <a href="project.html?project=${project.id}">
-                ${project.title}
-            </a>
-        </li>
-
-    `).join("");
-
+        projectList.appendChild(link);
+    });
 }
 
 
-/* =========================
-   HOMEPAGE GALLERY
-========================= */
+/* =====================================
+   HOMEPAGE PROJECT GALLERY
+===================================== */
 
-const projectGrid =
-    document.getElementById("project-grid");
-
-const projectCount =
-    document.getElementById("project-count");
+const projectGrid = document.getElementById("project-grid");
 
 if (projectGrid) {
+    projects.forEach(function (project) {
+        const card = document.createElement("a");
 
-    projectGrid.innerHTML = projects.map(project => `
+        card.className = "project-card";
+        card.href = `project.html?project=${project.id}`;
 
-        <a
-            href="project.html?project=${project.id}"
-            class="project-card"
-        >
+        card.innerHTML = `
+            <img
+                src="${project.cover}"
+                alt="${project.title}"
+                class="project-image"
+                loading="lazy"
+            >
 
-            <div class="project-image">
-
-                <img
-                    src="${project.cover}"
-                    alt="${project.title}"
-                    loading="lazy"
-                >
-
+            <div class="project-title">
+                ${project.title}
             </div>
+        `;
 
-            <div class="project-info">
-
-                <span class="project-title">
-                    ${project.title}
-                </span>
-
-                <span class="project-category">
-                    ${project.category}
-                </span>
-
-            </div>
-
-        </a>
-
-    `).join("");
-
-
-    if (projectCount) {
-
-        projectCount.textContent =
-            `${String(projects.length).padStart(2, "0")} PROJECTS`;
-
-    }
-
+        projectGrid.appendChild(card);
+    });
 }
 
 
-/* =========================
+/* =====================================
    INDIVIDUAL PROJECT PAGE
-========================= */
+===================================== */
 
-const projectContent =
-    document.getElementById("project-content");
+const projectContent = document.getElementById("project-content");
 
 if (projectContent) {
 
-    const params =
-        new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectId = urlParams.get("project");
 
-    const projectId =
-        params.get("project");
+    const currentProject = projects.find(function (project) {
+        return project.id === projectId;
+    });
 
-    const project =
-        projects.find(item => item.id === projectId);
-
-
-    if (project) {
-
-        document.title =
-            `${project.title} — Your Name`;
-
+    if (currentProject) {
 
         projectContent.innerHTML = `
+            <div class="project-detail">
 
-            <a href="index.html" class="back-link">
-                ← BACK TO ALL PROJECTS
-            </a>
+                <h1>${currentProject.title}</h1>
 
-            <h1 class="project-detail-title">
-                ${project.title}
-            </h1>
+                <p class="project-meta">
+                    ${currentProject.category} / ${currentProject.year}
+                </p>
 
-            <div class="project-meta">
+                <p class="project-description">
+                    ${currentProject.description}
+                </p>
 
-                <span>${project.category}</span>
+                <div class="project-gallery">
+                    ${currentProject.gallery.map(function (image) {
+                        return `
+                            <img
+                                src="${image}"
+                                alt="${currentProject.title}"
+                                class="project-detail-image"
+                                loading="lazy"
+                            >
+                        `;
+                    }).join("")}
+                </div>
 
-                <span>${project.year}</span>
-
-            </div>
-
-            <p class="project-description">
-                ${project.description}
-            </p>
-
-            <img
-                class="project-hero"
-                src="${project.cover}"
-                alt="${project.title}"
-            >
-
-            <div class="project-gallery">
-
-                ${project.gallery.map((image, index) => `
-
-                    <img
-                        src="${image}"
-                        alt="${project.title} — Image ${index + 1}"
-                        loading="lazy"
-                    >
-
-                `).join("")}
+                <a href="index.html" class="back-link">
+                    Back to Projects
+                </a>
 
             </div>
-
         `;
 
     } else {
-
         projectContent.innerHTML = `
-
-            <a href="index.html" class="back-link">
-                ← BACK TO ALL PROJECTS
-            </a>
-
-            <h1>Project not found.</h1>
-
+            <p>Project not found.</p>
+            <a href="index.html">Back to Projects</a>
         `;
-
     }
-
 }
-/* =========================
-   CUSTOM ORANGE CURSOR
-========================= */
+
+
+/* =====================================
+   CUSTOM CURSOR
+===================================== */
+
 const cursor = document.createElement("div");
+
 cursor.classList.add("custom-cursor");
 document.body.appendChild(cursor);
 
-document.addEventListener("mousemove", function(event) {
+document.addEventListener("mousemove", function (event) {
+
     cursor.style.left = event.clientX + "px";
     cursor.style.top = event.clientY + "px";
 
@@ -380,20 +257,14 @@ document.addEventListener("mousemove", function(event) {
     );
 
     cursor.classList.toggle("hover", !!clickable);
+
 });
 
 
-const card = document.createElement("a");
-card.className = "project-card";
-card.href = `project.html?project=${project.id}`;
+/* =====================================
+   HIDE CUSTOM CURSOR ON TOUCH DEVICES
+===================================== */
 
-card.innerHTML = `
-    <img
-        src="${project.cover}"
-        alt="${project.title}"
-        class="project-image"
-    >
-    <div class="project-title">${project.title}</div>
-`;
-
-gallery.appendChild(card);
+if (window.matchMedia("(hover: none), (pointer: coarse)").matches) {
+    cursor.style.display = "none";
+}
