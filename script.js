@@ -50,83 +50,99 @@ if (passwordForm) {
    PROJECT INFORMATION
 ===================================== */
 
+
 const projects = [
-    {
-        id: "project-01",
-        title: "Project One",
-        category: "Graphic Design",
-        year: "2026",
+  {
+    id: "project-01",
+    title: "Project One",
+    category: "Graphic Design",
+    year: "2026",
 
-        // PROJECT 1 THUMBNAIL
-        cover: "https://raw.githubusercontent.com/sandrayaos/folio/refs/heads/main/images/project-01.jpg",
+    // Homepage thumbnail
+    cover: "images/project-01.jpg",
 
-        description: "Project description goes here.",
+    description: "Project description goes here.",
 
-        gallery: [
-            "https://raw.githubusercontent.com/sandrayaos/folio/refs/heads/main/images/project-01.jpg"
-        ]
-    },
+    // Individual project page images
+    hero: "images/project-01-hero.jpg",
 
-    {
-        id: "project-02",
-        title: "Project Two",
-        category: "Branding",
-        year: "2026",
-        cover: "images/project-02.jpg",
-        description: "Project description goes here.",
-        gallery: [
-            "images/project-02.jpg"
-        ]
-    },
+    details: [
+      "images/project-01-detail-1.jpg",
+      "images/project-01-detail-2.jpg"
+    ]
+  },
 
-    {
-        id: "project-03",
-        title: "Project Three",
-        category: "Web Design",
-        year: "2025",
-        cover: "images/project-03.jpg",
-        description: "Project description goes here.",
-        gallery: [
-            "images/project-03.jpg"
-        ]
-    },
+  {
+    id: "project-02",
+    title: "Project Two",
+    category: "Branding",
+    year: "2026",
+    cover: "images/project-02.jpg",
+    description: "Project description goes here.",
+    hero: "images/project-02-hero.jpg",
+    details: [
+      "images/project-02-detail-1.jpg",
+      "images/project-02-detail-2.jpg"
+    ]
+  },
 
-    {
-        id: "project-04",
-        title: "Project Four",
-        category: "Photography",
-        year: "2025",
-        cover: "images/project-04.jpg",
-        description: "Project description goes here.",
-        gallery: [
-            "images/project-04.jpg"
-        ]
-    },
+  {
+    id: "project-03",
+    title: "Project Three",
+    category: "Web Design",
+    year: "2025",
+    cover: "images/project-03.jpg",
+    description: "Project description goes here.",
+    hero: "images/project-03-hero.jpg",
+    details: [
+      "images/project-03-detail-1.jpg",
+      "images/project-03-detail-2.jpg"
+    ]
+  },
 
-    {
-        id: "project-05",
-        title: "Project Five",
-        category: "UI/UX Design",
-        year: "2025",
-        cover: "images/project-05.jpg",
-        description: "Project description goes here.",
-        gallery: [
-            "images/project-05.jpg"
-        ]
-    },
+  {
+    id: "project-04",
+    title: "Project Four",
+    category: "Photography",
+    year: "2025",
+    cover: "images/project-04.jpg",
+    description: "Project description goes here.",
+    hero: "images/project-04-hero.jpg",
+    details: [
+      "images/project-04-detail-1.jpg",
+      "images/project-04-detail-2.jpg"
+    ]
+  },
 
-    {
-        id: "project-06",
-        title: "Project Six",
-        category: "Digital Design",
-        year: "2025",
-        cover: "images/project-06.jpg",
-        description: "Project description goes here.",
-        gallery: [
-            "images/project-06.jpg"
-        ]
-    }
+  {
+    id: "project-05",
+    title: "Project Five",
+    category: "UI/UX Design",
+    year: "2025",
+    cover: "images/project-05.jpg",
+    description: "Project description goes here.",
+    hero: "images/project-05-hero.jpg",
+    details: [
+      "images/project-05-detail-1.jpg",
+      "images/project-05-detail-2.jpg"
+    ]
+  },
+
+  {
+    id: "project-06",
+    title: "Project Six",
+    category: "Digital Design",
+    year: "2025",
+    cover: "images/project-06.jpg",
+    description: "Project description goes here.",
+    hero: "images/project-06-hero.jpg",
+    details: [
+      "images/project-06-detail-1.jpg",
+      "images/project-06-detail-2.jpg"
+    ]
+  }
 ];
+
 
 
 /* =====================================
